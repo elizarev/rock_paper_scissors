@@ -1,0 +1,139 @@
+body {
+    background-color: #8130A1;
+    font-family:  'Montserrat', sans-serif;
+    color : white;
+    text-align: center;
+}
+
+p {
+    color : white;
+    font-family:  'Montserrat', sans-serif;
+}
+
+
+#reset{
+    color: white;
+}
+
+
+.results {
+    border: 15px solid #17E9E0;
+    margin:20px;
+    border-radius: 15%;
+    width: 400px;
+    height: 200px;
+
+}
+
+.option {
+    padding: 5px;
+    border: 15px solid #FCCD04;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.options {
+    padding: 5px;
+    border: 15px solid #FCCD04;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+  .option:hover  {
+    border: 15px solid #17E9E0;
+    border-radius: 25%;
+  }
+
+
+  .play-option:hover .overlay {
+    opacity:1;
+
+  }
+
+
+
+.overlay  {
+    padding: 5px;
+    width: 125px;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 20px;
+    border-radius: 25%;
+    text-align: center;
+    position: right;
+
+  }
+
+
+  .selected {
+    padding: 5px;
+    border: 15px solid #17E9E0;
+    border-radius: 25%;
+    width: 100px;
+    height: 100px;
+
+  }
+
+  .computer{
+
+    padding: 5px;
+    border: 15px solid #f4976c;
+    border-radius: 25%;
+    width: 100px;
+    height: 100px;
+  }
+
+  .unselected {
+    filter: grayscale(1);
+    padding: 5px;
+    border: 15px solid #FCCD04;
+    border-radius: 25%;
+    width: 100px;
+    height: 100px;
+
+  }
+
+
+
+  .user-option {
+    width: 200px;
+    height: 250px;
+
+  }
+
+  .computer-option {
+
+    width: 200px;
+    height: 250px;
+  }
+  .button{
+    display:inline-block;
+    font-size: 1.17em;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    color : white;
+    font-family: sans-serif;
+    background-color: transparent;
+    border: 5px solid #FCCD04;
+    border-radius: 12px;
+    font-family:  'Montserrat', sans-serif;
+    margin: 20px;
+
+    padding:10px 25px;
+  }
+
+  .button:hover {
+    background-color: #f4976c;
+    color: white;
+  }
+
+.flex-container {
+     display: flex;
+     flex-wrap: wrap;
+     flex-direction: row;
+     justify-content:space-evenly;
+  }

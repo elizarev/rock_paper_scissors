@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Rock Paper Scissors</title>
+</head>
+
+<body>
+
+    <h1 class="text">Rock Paper Scissors</h1>
+
+    <h2 class="text">Choose one option</h2>
+    <div class="flex-container">
+        <div class="play-option"><input type="image" class="option" id="rock" src="images/rock.png">
+            <div class="overlay">Rock</div>
+        </div>
+        <div class="play-option"><input type="image" class="option" id="paper" src="images/paper.jpeg">
+            <div class="overlay">Paper</div>
+        </div>
+        <div class="play-option"><input type="image" class="option" id="scissors" src="images/scissors.jpeg">
+            <div class="overlay">Scissors</div>
+        </div>
+    </div>
+
+    <h3 class="text">
+        Result: <strong id="result"></strong>
+    </h3>
+
+    <button type="button" class="button">Play again</button>
+
+    <script>
+        const paper = document.querySelector('#paper');
+        const scissors = document.querySelector('#scissors');
+        const rock = document.querySelector('#rock');
+        const button = document.querySelector('button');
+        const result = document.getElementById('result');
+
+
+        function unselectedOption(computer, user) {
+            const posibleOptions = ['rock', 'paper', 'scissors'];
+            return posibleOptions.filter(option => (option !== computer && option !== user))
+        }
+
+        function playGame(userMove) {
+            const computerOptions = ['rock', 'paper', 'scissors'];
+            const computerMove = computerOptions[Math.floor(Math.random() * 3)];
+            document.getElementById(String(computerMove)).className = "computer play-option overlays";
+
+
+            if (computerMove === userMove) {
+                let unselectedOptions = unselectedOption(computerMove, userMove)
+                document.getElementById((unselectedOptions[0])).className = "unselected";
+                document.getElementById((unselectedOptions[1])).className = "unselected";
+                return `It is a tie, you have both played ${computerMove}`;
+            }
+            document.getElementById(String(unselectedOption(computerMove, userMove))).className = "unselected";
+
+            if (
+                (computerMove === 'scissors' && userMove === 'paper') ||
+                (computerMove === 'paper' && userMove === 'rock') ||
+                (computerMove === 'rock' && userMove === 'scissors')
+            ) {
+                return `The computer played ${computerMove}, ${computerMove} beats ${userMove} so the computer wins`;
+            }
+
+            return `The computer played ${computerMove}, ${userMove} beats ${computerMove} so you win`;
+        }
+
+        paper.addEventListener('click', function () {
+            document.getElementById("paper").className = "selected";
+            return (result.textContent = playGame('paper'));
+        });
+
+
+
+        scissors.addEventListener('click', function () {
+            document.getElementById("scissors").className = "selected";
+            return (result.textContent = playGame('scissors'));
+        });
+
+        rock.addEventListener('click', function () {
+            document.getElementById("rock").className = "selected";
+            return (result.textContent = playGame('rock'));
+        });
+        button.addEventListener('click', function () {
+            document.getElementById("rock").className = "option";
+            document.getElementById("paper").className = "option";
+            document.getElementById("scissors").className = "option";
+        });
+
+
+    </script>
+</body>
+
+</html>
